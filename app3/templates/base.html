@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%  static 'style/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <h1>Магазин Электроники и Техники</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/about/">О нас</a></li>
+                <li><a href="/products/">Товары</a></li>
+                <li><a href="{% url 'login' %}">Вход</a></li>
+                <li><a href="{% url 'register' %}">Регистрация</a></li>
+                {% if request.user %}
+                    <a class="profile" href="{%url 'profile'%}">{{ request.user.username }}</a>
+                {% endif %}
+                <li><a href="{% url 'cart_detail' %}">Корзина {{ cart |length }}</a></li>
+                
+                
+                    
+            </ul>
+            
+        </nav>
+        
+    </header>
+
+    <main>
+        <h2>Добро пожаловать в наш магазин!</h2>
+        <p>Мы предлагаем широкий ассортимент электроники и техники по доступным ценам.</p>
+    </main>
+    {% block content %}
+
+
+
+    
+    {% endblock %}
+    <footer>
+        <p>© 2023 Магазин Электроники и Техники</p>
+    </footer>
+    
+
+    
+    
+</body>
+</html>

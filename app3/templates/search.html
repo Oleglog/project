@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Поиск</h1>
+<form method="get" action="">
+    {{ form.as_p }}
+    <button type="submit">Поиск</button>
+</form>
+
+<h2>Результаты поиска смартфонов</h2>
+<ul>
+    {% for post in phones_results %}
+        <li>{{ post.title }}</li>
+        <li> <img src="{{ post.image.url }}"> </a></li>
+        
+    {% empty %}
+        <li>Нет результатов</li>
+    {% endfor %}
+</ul>
+
+<h2>Результаты поиска наушников</h2>
+<ul>
+    {% for post in headphones_results %}
+        <li>{{ post.title }}</li>
+        <li> <img src="{{ post.image.url }}"></a></li>
+        
+    {% empty %}
+        <li>Нет результатов</li>
+    {% endfor %}
+</ul>
+
+<h2>Результаты поиска смарт часов</h2>
+<ul>
+    {% for post in smart_watchs_results %}
+        <li>{{ post.title }}</li>
+        <li> <img src="{{ post.image.url }}"> </a></li>
+        
+    {% empty %}
+        <li>Нет результатов</li>
+    {% endfor %}
+</ul>
+
+
+    
+    {% endblock %}
+    
+
+

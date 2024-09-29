@@ -1,0 +1,11 @@
+<div class="">
+    <div class="">
+        <h2>Оформление заказа</h2>
+    </div>
+    <form action="{% url 'create_order' %}" method="post">
+
+        {% csfr_token %}
+        {{ orderForm.as_p }}
+        <button type="submit">Заказать</button>
+    </form>
+</div>

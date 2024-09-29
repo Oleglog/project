@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%  static 'style/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Магазин Электроники и Техники</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="">О нас</a></li>
+                <li><a href="/products/">Товары</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>О нас</h2>
+        <p>Мы - команда профессионалов, работающих в сфере электроники. Наша цель - предоставить нашим клиентам только качественную технику и электронику, соответствующую современным стандартам.</p>
+    </main>
+
+    <footer>
+        <p>© 2023 Магазин Электроники и Техники</p>
+    </footer>
+
+    {% block content %}
+
+
+
+    
+    {% endblock %}
+
+</body>
+</html>

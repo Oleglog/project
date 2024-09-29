@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+    {% block content %}
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Список пользователей</title>
+    </head>
+    <body>
+        <h1>Список пользователей</h1>
+        <table>
+            <tr>
+                <th>Имя пользователя</th>
+                <th>Действия</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>
+                    <a href="{% url 'edit_user' user.id %}">Редактировать</a>
+                    <a href="{% url 'delete_user' user.id %}">Удалить</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{% url 'add_user' %}">Добавить пользователя</a>
+    </body>
+    </html>
+
+    {% endblock %}  

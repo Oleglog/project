@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%  static 'style/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <h1>Магазин Электроники и Техники</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/about/">О нас</a></li>
+                <li><a href="">Товары</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Наши Товары</h2>
+        <div class="product">
+            
+            {% for headphones in headphones_items %}
+            <b>{{ headphones.title }}</b><br>
+            {{ headphones.description }}<br>
+            <a href="{% url 'headphones_detail' headphones.id %}"> <img src="{{ headphones.image.url }}"></a>
+            <b>{{ headphones.price }}</b>
+            {% empty %}
+            {% endfor %}
+        </div>
+        <div class="product">
+            {% for phone in phone_items %}
+            <b>{{ phone.title }}</b><br>
+            {{ phone.description }}<br>
+            
+            <a href="{% url 'phone_detail' phone.id %}"> <img src="{{ phone.image.url }}"></a>
+            <b>{{ phone.price }}</b>
+            <a href="{% url 'cart_add' phone.id %}"> В корзину</a>
+            {% empty %}
+            
+            {% endfor %}
+        </div>
+        <div class="product">
+            
+            {% for smart_watch in smart_watch_items %}
+            <b>{{ smart_watch.title }}</b><br>
+            {{ smart_watch.description }}<br>
+            <a href="{% url 'smart_watch_detail' smart_watch.id %}"> <img src="{{ smart_watch.image.url }}"></a>
+            <b>{{ smart_watch.price }}</b>
+            {% empty %}
+            
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Магазин Электроники и Техники</p>
+    </footer>
+    
+
+    {% block content %}
+
+
+
+    
+    {% endblock %}
+</body>
+</html>
